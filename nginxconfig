@@ -1,0 +1,17 @@
+server {
+    listen 8080;
+    server_name localhost;
+
+    location /api{
+       # rewrite  ^/api/(.*)$ /$1 break;
+        proxy_pass http://xxx.xx.xx.xx:8080;
+    }
+
+
+    location / {
+        root   url;
+        index  index.html;
+        try_files $uri $uri/ /index.html;
+    }
+
+}
